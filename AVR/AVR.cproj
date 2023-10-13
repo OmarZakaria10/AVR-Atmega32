@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>7.0</ProjectVersion>
+    <ToolchainName>com.microchip.xc8</ToolchainName>
+    <ProjectGuid>2285C48D-296E-43FD-A7B6-69885F64CFFD</ProjectGuid>
+    <avrdevice>ATmega32</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>AVR</AssemblyName>
+    <Name>AVR</Name>
+    <RootNamespace>AVR</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <ResetRule>0</ResetRule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <EraseKey />
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.52.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <com.microchip.xc8>
+        <com.microchip.xc8.common.optimization.RelaxBranches>True</com.microchip.xc8.common.optimization.RelaxBranches>
+        <com.microchip.xc8.compiler.general.ChangeDefaultCharTypeUnsigned>True</com.microchip.xc8.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <com.microchip.xc8.compiler.general.ChangeDefaultBitFieldUnsigned>True</com.microchip.xc8.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <com.microchip.xc8.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>(%24DeviceMacro)</Value>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </com.microchip.xc8.compiler.symbols.DefSymbols>
+        <com.microchip.xc8.compiler.optimization.level>Optimize for size (-Os)</com.microchip.xc8.compiler.optimization.level>
+        <com.microchip.xc8.compiler.optimization.PackStructureMembers>True</com.microchip.xc8.compiler.optimization.PackStructureMembers>
+        <com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>True</com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>
+        <com.microchip.xc8.compiler.warnings.AllWarnings>True</com.microchip.xc8.compiler.warnings.AllWarnings>
+        <com.microchip.xc8.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </com.microchip.xc8.linker.libraries.Libraries>
+      </com.microchip.xc8>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <com.microchip.xc8>
+        <com.microchip.xc8.compiler.general.ChangeDefaultCharTypeUnsigned>True</com.microchip.xc8.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <com.microchip.xc8.compiler.general.ChangeDefaultBitFieldUnsigned>True</com.microchip.xc8.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <com.microchip.xc8.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>(%24DeviceMacro)</Value>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </com.microchip.xc8.compiler.symbols.DefSymbols>
+        <com.microchip.xc8.compiler.optimization.level>Optimize debugging experience (-Og)</com.microchip.xc8.compiler.optimization.level>
+        <com.microchip.xc8.compiler.optimization.PackStructureMembers>True</com.microchip.xc8.compiler.optimization.PackStructureMembers>
+        <com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>True</com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>
+        <com.microchip.xc8.compiler.optimization.DebugLevel>Default (-g2)</com.microchip.xc8.compiler.optimization.DebugLevel>
+        <com.microchip.xc8.compiler.warnings.AllWarnings>True</com.microchip.xc8.compiler.warnings.AllWarnings>
+        <com.microchip.xc8.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </com.microchip.xc8.linker.libraries.Libraries>
+        <com.microchip.xc8.assembler.debugging.DebugLevel>Default (-Wa,-g)</com.microchip.xc8.assembler.debugging.DebugLevel>
+      </com.microchip.xc8>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="application.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Application.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\7_SEGMENT\7_segment.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\7_SEGMENT\7_segment.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\7_SEGMENT\7_segment_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\BUTTON\button.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\BUTTON\button.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\BUTTON\button_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\KEYPAD\keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\KEYPAD\keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\KEYPAD\keypad_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\LCD\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\LCD\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\LCD\lcd_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\LED\led.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\LED\led.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\LED\led_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\MOTOR\dc_motor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\MOTOR\dc_motor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\MOTOR\dc_motor_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\RELAY\relay.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\RELAY\relay.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\ECU\RELAY\relay_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\ADC\ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\ADC\ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\GPIO\GPIO.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\GPIO\GPIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\I2C\I2C.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\I2C\I2C.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\SPI\SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\SPI\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\STD_TYPES.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\TIMER0\TIMER0.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\TIMER0\TIMER0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\USART\USART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Drivers\MCAL\USART\USART.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main1.c">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Drivers" />
+    <Folder Include="Drivers\ECU\LED" />
+    <Folder Include="Drivers\ECU\LCD" />
+    <Folder Include="Drivers\ECU\MOTOR" />
+    <Folder Include="Drivers\ECU\KEYPAD" />
+    <Folder Include="Drivers\ECU\BUTTON" />
+    <Folder Include="Drivers\ECU\7_SEGMENT" />
+    <Folder Include="Drivers\ECU\RELAY" />
+    <Folder Include="Drivers\MCAL" />
+    <Folder Include="Drivers\ECU" />
+    <Folder Include="Drivers\MCAL\GPIO" />
+    <Folder Include="Drivers\MCAL\I2C" />
+    <Folder Include="Drivers\MCAL\ADC" />
+    <Folder Include="Drivers\MCAL\TIMER0" />
+    <Folder Include="Drivers\MCAL\SPI" />
+    <Folder Include="Drivers\MCAL\USART" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
