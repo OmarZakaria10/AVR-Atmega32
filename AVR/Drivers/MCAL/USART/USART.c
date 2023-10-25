@@ -69,7 +69,12 @@ void USART_SendByteBlocking(const uint8 data)
 	while(!READ_BIT(UCSRA,UDRE));
 	UDR = data;
 }
-
+void USART_SendStringBlocking(const uint8 *data ,uint8 n){
+	for (uint8 i=0 ; i<n ; i++)
+	{
+		USART_SendByteBlocking(data[i]);
+	}
+}
 
 uint8 USART_RecieveByteBlocking(void)
 {
