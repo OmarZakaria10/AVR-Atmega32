@@ -64,7 +64,7 @@ void USART_DeInit(void)
 	UBRRH = 0x00;
 }
 
-void USART_SendByteBlocking(const uint8 *data)
+void USART_SendByteBlocking(const uint8 data)
 {
 	while(!READ_BIT(UCSRA,UDRE));
 	UDR = data;
