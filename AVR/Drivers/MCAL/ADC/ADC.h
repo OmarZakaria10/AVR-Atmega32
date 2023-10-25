@@ -27,7 +27,7 @@
 typedef enum{
 	AREF,	
 	AVCC,
-	RESERVED,
+	Reserved,
 	INTERNAL_2_56
 	}ADC_REFERENCE_t;
 
