@@ -68,7 +68,7 @@ typedef struct{
 /* ----------------- Software Interfaces Declarations -----------------*/
 void USART_Init(const USART_Config_t *usart_t);
 void USART_DeInit(void);
-void USART_SendByteBlocking(const uint8_t *data);
+void USART_SendByteBlocking(const uint8_t data);
 uint8 USART_RecieveByteBlocking(void);
 uint8 USART_RecieveNonByteBlocking(void);
 
